@@ -1,14 +1,10 @@
-import argparse
 import glob
-import time
 
 import pandas as pd
-import re
 from collections import defaultdict
 
 import pyarrow
 
-from src.utils.get_data import (get_openfe_data, concat_data)
 from src.utils.get_data import split_data, get_openml_dataset_split_and_metadata
 from src.utils.run_models import get_model_score_origin_classification, get_model_score_origin_regression
 
@@ -47,7 +43,7 @@ def main(fold):
             original_results = original_results[original_results['model'] == "LightGBM_BAG_L1"]
             original_results.to_parquet(original_path)
         print("Original Results loaded.")
-
+        """
         # === OPENFE RESULTS ===
         if int(dataset_id) not in [2073, 359930, 359931, 359935, 359938, 359959, 359962, 359983]:
             openfe_path = f"test_results/OpenFE_Result_{dataset_id}_{fold}.parquet"
@@ -80,7 +76,8 @@ def main(fold):
             combined_results = [original_results, openfe_results]
         else:
             print("No OpenFE")
-            combined_results = [original_results]
+        """
+        combined_results = [original_results]
 
         # === METHOD RESULTS (Random/pandas/MFE/d2v) ===
         best_random_result = None
@@ -140,9 +137,5 @@ def main(fold):
 
 
 if __name__ == "__main__":
-    print("Hello World!")
-    parser = argparse.ArgumentParser(description='Run Test Folds')
-    parser.add_argument('--fold', required=True, help='Fold')
-    args = parser.parse_args()
-    print("Hello World!")
-    main(int(args.fold))
+    for fold in range(10):
+        main(fold)
