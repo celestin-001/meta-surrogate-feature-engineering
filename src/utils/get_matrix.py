@@ -13,7 +13,7 @@ def get_matrix_core_columns():
 
 
 def get_additional_pandas_columns():
-    return ['task_type', 'feature - count', 'feature - unique', 'feature - top', 'feature - freq', 'feature - mean', 'feature - std', 'feature - min', 'feature - 25%', 'feature - 50%', 'feature - 75%', 'feature - max']
+    return ['feature - count', 'feature - unique', 'feature - top', 'feature - freq', 'feature - mean', 'feature - std', 'feature - min', 'feature - 25%', 'feature - 50%', 'feature - 75%', 'feature - max']
 
 
 def get_additional_mfe_columns():
