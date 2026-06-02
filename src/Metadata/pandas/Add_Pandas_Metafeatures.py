@@ -113,7 +113,7 @@ def add_pandas_metadata_columns(dataset_metadata, X_train, result_matrix):
             feature_metadata = get_pandas_metafeatures(feature, featurename)
             new_row = pd.DataFrame(columns=columns)
             new_row.loc[len(result_matrix)] = [
-                dataset_metadata["task_type"],
+                # dataset_metadata["task_type"],
                 feature_metadata["feature - count"],
                 feature_metadata["feature - unique"],
                 feature_metadata["feature - top"],
@@ -134,7 +134,7 @@ def add_pandas_metadata_columns(dataset_metadata, X_train, result_matrix):
             feature_metadata = get_pandas_metafeatures(feature, feature_to_delete)
             new_row = pd.DataFrame(columns=columns)
             new_row.loc[len(result_matrix)] = [
-                dataset_metadata["task_type"],
+                # dataset_metadata["task_type"],
                 feature_metadata["feature - count"],
                 feature_metadata["feature - unique"],
                 feature_metadata["feature - top"],

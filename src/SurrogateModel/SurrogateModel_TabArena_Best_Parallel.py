@@ -421,7 +421,7 @@ def main_wrapper():
     parser = argparse.ArgumentParser(description='Run Surrogate Model with Metadata from Method')
     parser.add_argument('--dataset', required=True, help='Dataset')
     args = parser.parse_args()
-    methods = ["pandas", "d2v", "MFE"]
+    methods = ["pandas"]  # , "d2v", "MFE"]
     number_of_features = 200
     for method in methods:
         main(int(args.dataset), method, number_of_features)

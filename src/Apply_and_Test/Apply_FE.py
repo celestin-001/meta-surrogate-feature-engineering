@@ -25,7 +25,7 @@ def get_additional_features(X, y, prediction_result):
             feature = feature.reset_index(drop=True)
             X = pd.concat([X, feature], axis=1)
         else:
-            X = X.drop(featurename, axis=1)
+            X = X.drop(featurename, axis=1, errors='ignore')
     return X, y
 
 
